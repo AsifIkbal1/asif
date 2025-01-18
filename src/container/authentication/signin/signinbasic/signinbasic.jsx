@@ -12,8 +12,8 @@ const Signinbasic = () => {
         usr_email: '',
         password: ''
     });
-    const [loading, setLoading] = useState(false); 
-    const navigate = useNavigate(); 
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
 
     const handleInputChange = (e) => {
@@ -25,7 +25,7 @@ const Signinbasic = () => {
     };
 
     const handleFormSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         setLoading(true);
         try {
             const response = await axios.post('https://crimsoncup.dma-bd.com/cms/auth/login/', userInfo);
@@ -64,8 +64,9 @@ const Signinbasic = () => {
                                             <div className="xl:col-span-12 col-span-12">
                                                 <label htmlFor="signin-username" className="form-label text-default">User Name</label>
                                                 <input type="email"
-                                                   value={userInfo.usr_email}
-                                                   onChange={handleInputChange}
+                                                    name="usr_email"
+                                                    value={userInfo.usr_email}
+                                                    onChange={handleInputChange}
                                                     className="form-control form-control-lg w-full !rounded-md" id="signin-username"
                                                     placeholder="user email"
                                                 />
@@ -74,12 +75,15 @@ const Signinbasic = () => {
                                                 <label htmlFor="signin-password" className="form-label text-default block">Password<Link to={`${import.meta.env.BASE_URL}authentication/resetpassword/resetbasic`} className="ltr:float-right rtl:float-left text-danger">Forget password ?</Link></label>
                                                 <div className="input-group">
                                                     <input
-                                                        value={userInfo.password}
-                                                        onChange={handleInputChange}
+                                                         name="password"
+                                                         value={userInfo.password}
+                                                         onChange={handleInputChange}
                                                         type={(passwordshow1) ? 'text' : "password"}
                                                         className="form-control form-control-lg !rounded-s-md" id="signin-password"
                                                         placeholder="password" />
-                                                    <button onClick={() => setpasswordshow1(!passwordshow1)} aria-label="button" className="ti-btn ti-btn-light !rounded-s-none !mb-0" type="button" id="button-addon2"><i className={`${passwordshow1 ? 'ri-eye-line' : 'ri-eye-off-line'} align-middle`}></i></button>
+                                                    <button onClick={() => setpasswordshow1(!passwordshow1)}
+                                                     aria-label="button" className="ti-btn ti-btn-light !rounded-s-none !mb-0" 
+                                                     type="button" id="button-addon2"><i className={`${passwordshow1 ? 'ri-eye-line' : 'ri-eye-off-line'} align-middle`}></i></button>
                                                 </div>
                                                 <div className="mt-2">
                                                     <div className="form-check !ps-0">
@@ -92,13 +96,13 @@ const Signinbasic = () => {
                                             </div>
                                             <div className="xl:col-span-12 col-span-12 grid mt-2">
                                                 <button type="submit"
-                                                className="ti-btn ti-btn-primary !bg-primary !text-white !font-medium">Sign In</button>
+                                                    className="ti-btn ti-btn-primary !bg-primary !text-white !font-medium" disabled={loading}>Sign In</button>
                                             </div>
                                         </div>
                                     </form>
                                     <div className="text-center">
-                                        <p className="text-[0.75rem] text-[#8c9097] dark:text-white/50 mt-4">Dont have an account? 
-                                        <Link to={`${import.meta.env.BASE_URL}authentication/signup/signupbasic`} className="text-primary">Sign Up</Link></p>
+                                        <p className="text-[0.75rem] text-[#8c9097] dark:text-white/50 mt-4">Dont have an account?
+                                            <Link to={`${import.meta.env.BASE_URL}authentication/signup/signupbasic`} className="text-primary">Sign Up</Link></p>
                                     </div>
                                     <div className="text-center my-4 authentication-barrier">
                                         <span>OR</span>
