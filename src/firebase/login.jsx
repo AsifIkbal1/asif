@@ -2,8 +2,6 @@ import { Fragment, useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import { ThemeChanger } from "../redux/action";
 import { Link, useNavigate } from 'react-router-dom';
-import desktoplogo from "../assets/images/brand-logos/desktop-logo.png";
-import desktopdarklogo from "../assets/images/brand-logos/desktop-dark.png";
 import react from "../assets/images/brand-logos/2.png";
 import firebase from "../assets/images/brand-logos/1.png";
 import axios from 'axios';
@@ -60,13 +58,6 @@ const Login = ({ ThemeChanger }) => {
                     <div className="grid grid-cols-12">
                         <div className="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-3 sm:col-span-2"></div>
                         <div className="xxl:col-span-4 xl:col-span-4 lg:col-span-4 md:col-span-6 sm:col-span-8 col-span-12">
-                            <div className="my-[1.5rem] flex justify-center">
-                                <Link to={`${import.meta.env.BASE_URL}dashboards/crm/`}>
-                                    <img src={desktoplogo} alt="logo" className="desktop-logo" />
-                                    <img src={desktopdarklogo} alt="logo" className="desktop-dark" />
-                                </Link>
-                            </div>
-
                             <div className="box !p-[3rem]">
                                 <nav className="!block firebase-data mt-6 bg-light mx-auto p-2 rounded-md" aria-label="Tabs">
                                     <div className="flex justify-center space-x-2 rtl:space-x-reverse">
